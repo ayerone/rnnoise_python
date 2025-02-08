@@ -1,3 +1,10 @@
+# Do you Love Xiph's rnnoise c library...
+And using it through python bindings?
+
+Have you started getting a Segmentation fault (core dumped) when using Shb742's awesome python bindings?
+
+This may be the fix for you!
+
 # Update of Shb742's python wrapper for rnnoise
 Please see the original: https://github.com/Shb742/rnnoise_python
 
