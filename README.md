@@ -1,25 +1,11 @@
-# A python wrapper for rnnoise
-python wrapper for the [rnnoise](https://github.com/xiph/rnnoise) library.
+# Update of Shb742's python wrapper for rnnoise
+Please see the original: https://github.com/Shb742/rnnoise_python
 
-# Prerequisites
-* Have [rnnoise](https://github.com/xiph/rnnoise) installed
-* python (2/3)
-* numpy
+Which is "a python wrapper for the [rnnoise](https://github.com/xiph/rnnoise) library"
 
-# Example usage
-**It operates on RAW 16-bit (machine endian) mono
-PCM data sampled at 48 kHz.**
+Shb742 has good instructions for the library, and even a test script to make sure you're 👍
 
-**Each frame of data must be in binary, and must be 480 int16s (i.e 2 bytes per sample.) This translates to 960 bytes per audio frame.**
+# The Update
+I had previously used these python bindings for the [wonderful] xiph rnnoise c library, but it recently stopped working for me.  I tracked the issue down to a problem with the call to the library's "rnnoise_create" c function, and my fix comprises a grand total of (drum roll) one character added to rnnoise.py 🤷
 
-```
-arecord -v -f S16_LE -c1 -r48000 -t raw | python3 rnn_test.py
-```
-```python
-import rnnoise,sys
-denoiser = rnnoise.RNNoise()
-stream = sys.stdin.buffer
-input_data = stream.read(480*2)
-va_prob,denoised_data = denoiser.process_frame(input_data)
-```
-
+Anyway, I hope it works for you.  Have fun.
