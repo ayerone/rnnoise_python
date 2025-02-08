@@ -14,7 +14,7 @@ lib.rnnoise_destroy.argtypes = [ctypes.c_void_p]
 
 class RNNoise(object):
 	def __init__(self):
-		self.obj = lib.rnnoise_create()
+		self.obj = lib.rnnoise_create(0)
 	def process_frame(self,inbuf):
 		outbuf = numpy.ndarray((480,), 'h', inbuf).astype(ctypes.c_float)
 		outbuf_ptr = outbuf.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
